@@ -1,76 +1,160 @@
-/* 1. The Background - Creamy Vintage Vibe */
+/* 1. Global Setup */
+:root {
+    --primary-bg: #1e1b4b; /* Deep Indigo Header */
+    --accent-color: #8b5cf6; /* Electric Violet Accent */
+    --body-bg: #0f172a; /* Dark Slate Background */
+    --card-bg: rgba(255, 255, 255, 0.08);
+}
+
 body {
-    background-color: #fdfaf1; /* Vintage Paper color */
-    color: #2c2c2c; /* Charcoal Black text */
-    font-family: 'Courier New', Courier, monospace; /* Classic typewriter feel */
+    background-color: var(--body-bg);
+    color: white;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    scroll-behavior: smooth;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+}
+
+/* 2. Professional Header (Stick It Up Style) */
+.main-header {
+    width: 100%;
+    background-color: var(--primary-bg);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.brand-logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    margin: 0;
+    color: #fff;
+}
+
+.brand-logo span { color: var(--accent-color); }
+
+.header-icons { display: flex; gap: 20px; font-size: 1.2rem; cursor: pointer; }
+
+.cart-icon { position: relative; }
+.cart-count {
+    position: absolute;
+    top: -10px; right: -10px;
+    background: var(--accent-color);
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 50%;
+}
+
+/* 3. Sub-Navigation Bar */
+.sub-nav { background-color: #312e81; }
+.sub-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 12px 0;
     margin: 0;
 }
-
-/* 2. The Header - Bold and Spaced */
-h1 {
-    font-size: 3rem;
-    letter-spacing: 5px;
+.sub-nav a {
+    color: #e0e7ff;
+    text-decoration: none;
+    font-weight: 600;
     text-transform: uppercase;
-    border-bottom: 3px solid #ff6b6b; /* 90s Pink/Red underline */
-    padding-bottom: 10px;
-    margin-top: 40px;
+    font-size: 0.85rem;
+    padding: 5px 15px;
+    transition: 0.3s;
 }
+.sub-nav a:hover { color: var(--accent-color); }
 
-/* 3. The Shop Grid - Side-by-Side Layout */
-.shop-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    width: 95%;
+/* 4. Organized Body Content */
+.content-wrapper {
+    width: 90%;
     max-width: 1200px;
     margin: 40px auto;
 }
 
-/* 4. The "Product" Card */
+.section-title {
+    text-align: center;
+    font-family: 'Syne', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 30px;
+    justify-items: center;
+}
+
 .sticker-card {
-    background: white;
-    border: 2px solid #2c2c2c; /* Sharp retro borders */
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
     padding: 20px;
     text-align: center;
-    box-shadow: 8px 8px 0px #ff6b6b; /* "Pop Art" shadow effect */
     transition: 0.3s;
 }
 
-.sticker-card:hover {
-    transform: scale(1.02); /* Slight zoom on hover */
-}
+.sticker-card:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.15); }
 
-/* 5. The Sticker Images */
 .sticker-card img {
     width: 100%;
-    height: 250px;
-    object-fit: contain; /* Prevents characters from looking stretched */
-    background: #fff;
-    border-bottom: 1px solid #eee;
+    height: 240px;
+    object-fit: contain; /* Keeps sticker proportions correct */
     margin-bottom: 15px;
 }
 
-/* 6. The Button - Retro Style */
 button {
-    background-color: #2c2c2c;
-    color: #fdfaf1;
-    border: 2px solid #2c2c2c;
-    padding: 10px 20px;
-    font-family: 'Courier New', Courier, monospace;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
-    margin-top: 10px;
     width: 100%;
+    transition: 0.3s;
 }
 
-button:hover {
-    background-color: #ff6b6b; /* 90s Red-Pink */
-    color: #2c2c2c;
-    transform: translate(-2px, -2px);
-    box-shadow: 4px 4px 0px #2c2c2c;
+button:hover { filter: brightness(1.2); cursor: pointer; }
+
+/* 5. Stylish Footer */
+.stylish-footer {
+    width: 100%;
+    background: #0a0a0a;
+    padding: 60px 20px 20px 20px;
+    margin-top: 100px;
+    border-top: 1px solid var(--accent-color);
 }
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo { font-family: 'Syne', sans-serif; font-size: 2rem; color: #fff; }
+.footer-logo span { color: var(--accent-color); }
+
+.footer-col ul { list-style: none; padding: 0; }
+.footer-col li { margin-bottom: 10px; }
+.footer-col a { color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: 0.3s; }
+.footer-col a:hover { color: #fff; }
+
+.payment-section { text-align: center; margin-top: 50px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 10px; }
+.footer-bottom { text-align: center; margin-top: 30px; font-size: 0.8rem; opacity: 0.4; }
